@@ -8,7 +8,7 @@ function saveToLocalStorage({ name, email, password }) {
 }
 
 function validateUserFromLocalStorage({ email, password }) {
-    let users = JSON.parse(localStorage.getItem('users'))
+    let users = JSON.parse(localStorage.getItem('users')) ?? []
     let result = users.filter(user => user.email === email.toLocaleLowerCase())
     if (result.length === 0) return false
 
