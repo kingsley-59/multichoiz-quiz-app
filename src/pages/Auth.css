@@ -16,27 +16,86 @@
     width: 600px;
     max-width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
+form {
+    display: block;
+    width: 100%;
+    max-width: 465px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+}
+
+form h3 {
+    font-size: 24px;
+    font-weight: 500;
+    color: teal;
+    width: 100%;
+    text-align: center;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
+    justify-content: start;
+    align-items: start;
+    gap: 10px;
+    width: 100%;
 }
 
 .form-group label {
+    width: 100%;
     text-align: left;
+    font-size: 16px;
+    color: teal;
 }
 
 .form-group input {
     width: 100%;
     padding: 8px 12px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    color: grey;
+}
+
+.form-group input:active, .form-group input:focus {
+    outline: none;
+    border: 2px solid teal;
+}
+
+.form-group button {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    color: white;
+    background-color: teal;
+    box-shadow: 1px 1px 2px #ccc;
+}
+
+.form-group button:hover {
+    border: 1px solid teal;
+    color: teal;
+    background-color: white;
+    box-shadow: 1px 1px 2px #ccc;
+}
+
+.form-group button:active {
+    border: none;
+    color: white;
+    background-color: teal;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.form-group p {
+    font-size: 14px;
+    color: grey;
 }

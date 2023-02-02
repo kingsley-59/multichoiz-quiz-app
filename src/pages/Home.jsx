@@ -13,12 +13,13 @@ function formatQuestions(questions = []) {
 
 export default function Home() {
   const navigate = useNavigate()
-  const { questions } = useSelector((state) => state.quiz)
+  const { questions } = useSelector(state => state.quiz)
+  const auth = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
   const startQuiz = () => {
     if (!Array.isArray(questions) && questions.length === 0) alert('No questions available, please refresh page.')
-    navigate('/quiz')   
+    navigate('/quiz')
   }
 
   useEffect(() => {
@@ -34,13 +35,28 @@ export default function Home() {
       }
     }
 
-    fetchQuestions()
-  }, [])
+    if (questions.length === 0) fetchQuestions()
+    console.log(auth.isLoggedIn)
+  }, [questions])
   return (
     <div className='home'>
-      <button className="start-quiz" onClick={startQuiz}>
-        Start Quiz
-      </button>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '15px',
+      }}>
+        {!auth.isLoggedIn && (
+          <>
+            <h3>You are not yet logged in</h3>
+            <p>Please <Link to='/login'>login</Link> to continue the game.</p>
+          </>
+        )}
+        <button className="start-quiz" onClick={startQuiz} disabled={!auth.isLoggedIn}>
+          Start Quiz
+        </button>
+      </div>
     </div>
   )
 }

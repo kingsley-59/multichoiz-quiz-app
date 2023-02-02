@@ -68,3 +68,24 @@ footer {
     left: 0;
     min-width: 100%;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .header-container {
+        font-size: 26px
+    }
+    .header-container .title {
+        max-width: 60%;
+    }
+}
+
+@media only screen and (max-width: 468px) {
+    .header-container {
+        font-size: 24px;
+        padding: 15px 30px;
+    }
+    .exit-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}

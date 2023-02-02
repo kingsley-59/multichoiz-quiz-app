@@ -5,6 +5,7 @@ import { resetQuiz } from './app/todoSlice'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react'
+import { logout, updateError, updateMessage } from './app/authSlice.'
 
 export default function Layout({ children }) {
   const navigate = useNavigate()
@@ -18,15 +19,24 @@ export default function Layout({ children }) {
   }
 
   useEffect(() => {
-    if (auth.message) toast(auth.message)
-    if (auth.error) toast.error(auth.error)
-  }, [auth?.message, auth?.error])
+    console.log('change detected')
+    if (!auth.isLoggedIn) navigate('/')
+    if (auth.message) {
+      toast(auth.message)
+      setTimeout(() => dispatch(updateMessage('')), 2000)
+    }
+
+    if (auth.error) {
+      toast.error(auth.error)
+      setTimeout(() => dispatch(updateError('')), 2000)
+    }
+  }, [auth])
   
   return (
     <div className='root'>
       <header>
         <div className='header-container'>
-          <div onClick={() => navigate('/')} style={{cursor: 'pointer'}}>MultiChoiz Quiz App</div>
+          <div className='title' onClick={() => navigate('/')} style={{cursor: 'pointer'}}>MultiChoiz Quiz App</div>
           <div className="exit">
             {auth.isLoggedIn ? (
               <button className='exit-button' onClick={exitQuiz}>
@@ -50,7 +60,12 @@ export default function Layout({ children }) {
       <ToastContainer />
 
       <footer>
-        Copyright &copy; 2023
+        Copyright &copy; 2023 |
+        <span style={{
+          color: 'crimson',
+          cursor: 'pointer',
+          padding: '0 5px',
+        }} onClick={() => dispatch(logout())}> Logout</span>
       </footer>
     </div>
   )
