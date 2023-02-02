@@ -20,7 +20,6 @@ export default function Layout({ children }) {
 
   useEffect(() => {
     console.log('change detected')
-    if (!auth.isLoggedIn) navigate('/')
     if (auth.message) {
       toast(auth.message)
       setTimeout(() => dispatch(updateMessage('')), 2000)
@@ -31,6 +30,10 @@ export default function Layout({ children }) {
       setTimeout(() => dispatch(updateError('')), 2000)
     }
   }, [auth])
+
+  useEffect(() => {
+    if (!auth.isLoggedIn) navigate('/')
+  }, [auth.isLoggedIn])
   
   return (
     <div className='root'>

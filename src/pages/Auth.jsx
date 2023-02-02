@@ -43,7 +43,7 @@ export function SignUp() {
                         <input type="password" id="confirmPassword" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <button type="submit">Sign up</button>
+                        <button type="submit">Login</button>
                         <p>Already have an account, <Link to={'/login'}>Login</Link></p>
                     </div>
                 </form>
@@ -77,7 +77,7 @@ export function Login() {
         <div className='login'>
             <div className="login-container">
                 <form onSubmit={handleSubmit}>
-                    <h3>Signup</h3>
+                    <h3>Login</h3>
                     <div className="form-group">
                         <label htmlFor="name">Email</label>
                         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -88,7 +88,7 @@ export function Login() {
                     </div>
                     <div className="form-group">
                         <button type="submit">Sign up</button>
-                        <p>Already have an account, <Link to={'/login'}>Login</Link></p>
+                        <p>Don't have an account, <Link to={'/signup'}>Sign up</Link></p>
                     </div>
                 </form>
             </div>

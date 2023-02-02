@@ -43,10 +43,16 @@ export const authSlice = createSlice({
         },
         login(state, action) {
             try {
-                if (state.user && state.password) return state.message = `Already logged in as ${state.name}`
+                if (state.user && state.password) {
+                    state.message = `Already logged in as ${state.name}`
+                    return ;
+                }
                 const { email, password } = action.payload
                 let result = validateUserFromLocalStorage({ email, password })
-                if (!result) return state.error = "User not found. Please signup."
+                if (!result) {
+                    state.error = "User not found. Please signup."
+                    return ;
+                }
                 if (result.password === password) {
                     state.isLoggedIn = true
                     state.message = "Login successful."
