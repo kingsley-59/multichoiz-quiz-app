@@ -1,16 +1,12 @@
 {
-    "version": 2,
-    "routes": [
-      {
-        "src": "^/(.*)$",
-        "dest": "/index.html",
-        "headers": {
-          "Content-Type": {
-            "key": "Content-Type",
-            "value": "text/javascript"
-          }
-        }
+  "version": 2,
+  "routes": [
+    {
+      "src": "^/(.*)$",
+      "dest": "/index.html",
+      "headers": {
+        "Content-Type": "text/javascript"
       }
-    ]
-  }
-  
+    }
+  ]
+}
