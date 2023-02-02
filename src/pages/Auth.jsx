@@ -43,7 +43,7 @@ export function SignUp() {
                         <input type="password" id="confirmPassword" value={confirmPass} onChange={(e) => setConfirmPass(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <button type="submit">Login</button>
+                        <button type="submit">Sign Up</button>
                         <p>Already have an account, <Link to={'/login'}>Login</Link></p>
                     </div>
                 </form>
