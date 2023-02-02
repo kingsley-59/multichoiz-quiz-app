@@ -87,7 +87,7 @@ export function Login() {
                         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <button type="submit">Sign up</button>
+                        <button type="submit">Login</button>
                         <p>Don't have an account, <Link to={'/signup'}>Sign up</Link></p>
                     </div>
                 </form>
